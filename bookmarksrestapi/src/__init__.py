@@ -9,13 +9,14 @@ from flask_jwt_extended import JWTManager
 from flasgger import Swagger, swag_from
 from src.config.swagger import template, swagger_config
 
-#konfigurasi
+# konfigurasi pd aplikasi flask
 def create_app(test_config=None):
     
     app = Flask(__name__,instance_relative_config=True)
     
     if test_config is None:
         
+        # menyetel beberapa konfigurasi default yang akan digunakan aplikasi
         app.config.from_mapping(
             SECRET_KEY=os.environ.get("SECRET_KEY"),
             SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI'),
