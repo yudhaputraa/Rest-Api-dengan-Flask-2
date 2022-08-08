@@ -18,6 +18,7 @@ def create_app(test_config=None):
         
         # menyetel beberapa konfigurasi default yang akan digunakan aplikasi
         app.config.from_mapping(
+            # key di ambil dari file .env
             SECRET_KEY=os.environ.get("SECRET_KEY"),
             SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI'),
             SQLALCHEMY_TRACK_MODIFICATIONS = False,
