@@ -30,12 +30,15 @@ def register():
     if not username.isalnum() or " " in username:
         return jsonify({'error':"Username hould be alphanumeric, also no spaces"}), HTTP_400_BAD_REQUEST
     
+    # untk memastikan email sesuai standat
     if not validators.email(email):
         return jsonify({'error':"Email is not valid"}), HTTP_400_BAD_REQUEST
     
+    # memastikan email sudah terpakai atau belum
     if User.query.filter_by(email=email).first() is not None:
         return jsonify({'error':"Email is taken"}), HTTP_409_CONFLICT
     
+    # memastikan username sudah terpakai atau belum
     if User.query.filter_by(username=username).first() is not None:
         return jsonify({'error':"Username is taken"}), HTTP_409_CONFLICT
     
