@@ -18,12 +18,15 @@ def register():
     email = request.json['email']
     password = request.json['password']
     
+    # utk pemberi tahu password terlal pendek
     if len(password)<6:
         return jsonify({'error':"Password is too short"}), HTTP_400_BAD_REQUEST
     
+    # utk pemberi tahu username terlal pendek
     if len(username)<3:
         return jsonify({'error':"Username is too short"}), HTTP_400_BAD_REQUEST
     
+    # utk pemberi tahu username tdk boleh mengunakan angka dan spasi
     if not username.isalnum() or " " in username:
         return jsonify({'error':"Username hould be alphanumeric, also no spaces"}), HTTP_400_BAD_REQUEST
     
