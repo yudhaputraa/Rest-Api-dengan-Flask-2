@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+# string utk import karakter huruf atau angka
 import string
 import random
 

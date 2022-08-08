@@ -20,6 +20,7 @@ def create_app(test_config=None):
         app.config.from_mapping(
             # key di ambil dari file .env
             SECRET_KEY=os.environ.get("SECRET_KEY"),
+            # SQLALCHEMY_DATABASE_URI di ambil dari file .flaskenv
             SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI'),
             SQLALCHEMY_TRACK_MODIFICATIONS = False,
             JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY'),
